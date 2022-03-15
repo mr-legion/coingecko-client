@@ -1,10 +1,12 @@
 package com.coingecko.constant;
 
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * Constants used throughout Coingecko's API.
  */
+@UtilityClass
 public class CoingeckoApiConstants {
 
     /**
