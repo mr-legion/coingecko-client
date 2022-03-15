@@ -1,5 +1,8 @@
 package com.coingecko;
 
+import com.coingecko.domain.coin.Coin;
+
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -28,4 +31,12 @@ public interface CoingeckoApiAsyncRestClient {
                                                                  Boolean include24hrVol,
                                                                  Boolean include24hrChange,
                                                                  Boolean includeLastUpdatedAt);
+
+    /**
+     * List all supported coins (asynchronous).
+     *
+     * @return coins
+     */
+    CompletableFuture<List<Coin>> getCoins();
+
 }

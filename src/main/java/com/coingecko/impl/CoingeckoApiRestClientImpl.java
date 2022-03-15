@@ -1,7 +1,9 @@
 package com.coingecko.impl;
 
 import com.coingecko.CoingeckoApiRestClient;
+import com.coingecko.domain.coin.Coin;
 
+import java.util.List;
 import java.util.Map;
 
 import static com.coingecko.impl.CoingeckoApiServiceGenerator.executeSync;
@@ -28,5 +30,10 @@ public class CoingeckoApiRestClientImpl implements CoingeckoApiRestClient {
                                                      Boolean includeLastUpdatedAt) {
         return executeSync(coingeckoApiService.getPrice(ids, vsCurrencies,
                 includeMarketCap, include24hrVol, include24hrChange, includeLastUpdatedAt));
+    }
+
+    @Override
+    public List<Coin> getCoins() {
+        return executeSync(coingeckoApiService.getCoins());
     }
 }

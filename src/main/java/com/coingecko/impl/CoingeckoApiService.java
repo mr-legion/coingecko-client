@@ -1,9 +1,11 @@
 package com.coingecko.impl;
 
+import com.coingecko.domain.coin.Coin;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,5 +22,8 @@ public interface CoingeckoApiService {
                                                     @Query("include_24hr_vol") Boolean include24hrVol,
                                                     @Query("include_24hr_change") Boolean include24hrChange,
                                                     @Query("include_last_updated_at") Boolean includeLastUpdatedAt);
+
+    @GET("/api/v3/coins/list")
+    Call<List<Coin>> getCoins();
 
 }

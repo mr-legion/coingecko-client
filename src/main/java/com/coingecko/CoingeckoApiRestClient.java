@@ -1,5 +1,8 @@
 package com.coingecko;
 
+import com.coingecko.domain.coin.Coin;
+
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,5 +29,12 @@ public interface CoingeckoApiRestClient {
                                               Boolean include24hrVol,
                                               Boolean include24hrChange,
                                               Boolean includeLastUpdatedAt);
+
+    /**
+     * List all supported coins.
+     *
+     * @return coins
+     */
+    List<Coin> getCoins();
 
 }
