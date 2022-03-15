@@ -1,17 +1,17 @@
-package com.coingecko.domain.coin;
+package com.coingecko.domain.coin.data;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * An coin.
+ * Image urls.
  */
 @NoArgsConstructor
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Coin {
-    private String id;
-    private String symbol;
-    private String name;
+public class Image {
+    private String thumb;
+    private String small;
+    private String large;
 }

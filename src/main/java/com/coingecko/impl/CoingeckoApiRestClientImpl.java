@@ -2,6 +2,7 @@ package com.coingecko.impl;
 
 import com.coingecko.CoingeckoApiRestClient;
 import com.coingecko.domain.coin.Coin;
+import com.coingecko.domain.coin.CoinFullData;
 
 import java.util.List;
 import java.util.Map;
@@ -35,5 +36,18 @@ public class CoingeckoApiRestClientImpl implements CoingeckoApiRestClient {
     @Override
     public List<Coin> getCoins() {
         return executeSync(coingeckoApiService.getCoins());
+    }
+
+    @Override
+    public CoinFullData getCoinFullData(String id,
+                                        boolean localization,
+                                        boolean tickers,
+                                        boolean marketData,
+                                        boolean communityData,
+                                        boolean developerData,
+                                        boolean sparkline) {
+        return executeSync(coingeckoApiService.getCoinFullData(
+                id, localization, tickers, marketData, communityData, developerData, sparkline
+        ));
     }
 }

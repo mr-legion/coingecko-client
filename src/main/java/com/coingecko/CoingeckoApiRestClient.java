@@ -1,6 +1,7 @@
 package com.coingecko;
 
 import com.coingecko.domain.coin.Coin;
+import com.coingecko.domain.coin.CoinFullData;
 
 import java.util.List;
 import java.util.Map;
@@ -36,5 +37,25 @@ public interface CoingeckoApiRestClient {
      * @return coins
      */
     List<Coin> getCoins();
+
+    /**
+     * Get full data for a coin.
+     *
+     * @param id            of coin
+     * @param localization  include all localized languages in response
+     * @param tickers       include tickers data
+     * @param marketData    include market data
+     * @param communityData include community data
+     * @param developerData include developer data
+     * @param sparkline     include sparkline 7 days data
+     * @return full coin data
+     */
+    CoinFullData getCoinFullData(String id,
+                                 boolean localization,
+                                 boolean tickers,
+                                 boolean marketData,
+                                 boolean communityData,
+                                 boolean developerData,
+                                 boolean sparkline);
 
 }

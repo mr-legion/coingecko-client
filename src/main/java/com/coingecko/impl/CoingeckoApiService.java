@@ -1,8 +1,10 @@
 package com.coingecko.impl;
 
 import com.coingecko.domain.coin.Coin;
+import com.coingecko.domain.coin.CoinFullData;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 import java.util.List;
@@ -26,4 +28,12 @@ public interface CoingeckoApiService {
     @GET("/api/v3/coins/list")
     Call<List<Coin>> getCoins();
 
+    @GET("/api/v3/coins/{id}")
+    Call<CoinFullData> getCoinFullData(@Path("id") String id,
+                                       @Query("localization") Boolean localization,
+                                       @Query("tickers") Boolean tickers,
+                                       @Query("market_data") Boolean marketData,
+                                       @Query("community_data") Boolean communityData,
+                                       @Query("developer_data") Boolean developerData,
+                                       @Query("sparkline") Boolean sparkline);
 }

@@ -2,6 +2,7 @@ package com.coingecko.impl;
 
 import com.coingecko.CoingeckoApiAsyncRestClient;
 import com.coingecko.domain.coin.Coin;
+import com.coingecko.domain.coin.CoinFullData;
 
 import java.util.List;
 import java.util.Map;
@@ -37,6 +38,21 @@ public class CoingeckoApiAsyncRestClientImpl implements CoingeckoApiAsyncRestCli
     public CompletableFuture<List<Coin>> getCoins() {
         CompletableFuture<List<Coin>> future = new CompletableFuture<>();
         coingeckoApiService.getCoins().enqueue(new RetrofitCallbackAdapter<>(future));
+        return future;
+    }
+
+    @Override
+    public CompletableFuture<CoinFullData> getCoinFullData(String id,
+                                                           boolean localization,
+                                                           boolean tickers,
+                                                           boolean marketData,
+                                                           boolean communityData,
+                                                           boolean developerData,
+                                                           boolean sparkline) {
+        CompletableFuture<CoinFullData> future = new CompletableFuture<>();
+        coingeckoApiService.getCoinFullData(
+                id, localization, tickers, marketData, communityData, developerData, sparkline
+        ).enqueue(new RetrofitCallbackAdapter<>(future));
         return future;
     }
 }

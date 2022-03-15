@@ -3,6 +3,7 @@ package com.coingecko.impl;
 import com.coingecko.CoingeckoApiAsyncRestClient;
 import com.coingecko.CoingeckoApiClientFactory;
 import com.coingecko.domain.coin.Coin;
+import com.coingecko.domain.coin.CoinFullData;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.concurrent.ExecutionException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CoingeckoApiAsyncRestClientImplTest {
@@ -30,5 +32,13 @@ public class CoingeckoApiAsyncRestClientImplTest {
     public void getCoins_ShouldReturnCoins() throws ExecutionException, InterruptedException {
         List<Coin> coins = coingeckoApiAsyncRestClient.getCoins().get();
         assertThat(coins, allOf(notNullValue(), is(not(empty()))));
+    }
+
+    @Test
+    public void getCoinFullData_ShouldReturnFullDataForBitcoin() throws ExecutionException, InterruptedException {
+        CoinFullData coinFullData = coingeckoApiAsyncRestClient.getCoinFullData(
+                "bitcoin", true, true, true, true, true, true
+        ).get();
+        assertNotNull(coinFullData);
     }
 }

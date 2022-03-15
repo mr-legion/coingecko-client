@@ -3,6 +3,7 @@ package com.coingecko.impl;
 import com.coingecko.CoingeckoApiClientFactory;
 import com.coingecko.CoingeckoApiRestClient;
 import com.coingecko.domain.coin.Coin;
+import com.coingecko.domain.coin.CoinFullData;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -29,5 +30,11 @@ public class CoingeckoApiRestClientImplTest {
     public void getCoins_ShouldReturnCoins() {
         List<Coin> coins = coingeckoApiRestClient.getCoins();
         assertThat(coins, allOf(notNullValue(), is(not(empty()))));
+    }
+
+    @Test
+    public void getCoinFullData_ShouldReturnFullDataForBitcoin() {
+        CoinFullData coinFullData = coingeckoApiRestClient.getCoinFullData("bitcoin", true, true, true, true, true, true);
+        assertNotNull(coinFullData);
     }
 }
