@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Roi {
-    private float times;
+    private Float times;
     private String currency;
-    private float percentage;
+    private Float percentage;
 }

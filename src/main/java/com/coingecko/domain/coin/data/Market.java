@@ -17,6 +17,6 @@ public class Market {
     private String identifier;
 
     @JsonProperty("has_trading_incentive")
-    private boolean hasTradingIncentive;
+    private Boolean hasTradingIncentive;
 
 }

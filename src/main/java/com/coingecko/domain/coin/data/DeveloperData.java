@@ -15,29 +15,29 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DeveloperData {
 
-    private long forks;
+    private Long forks;
 
-    private long stars;
+    private Long stars;
 
-    private long subscribers;
+    private Long subscribers;
     @JsonProperty("total_issues")
 
-    private long totalIssues;
+    private Long totalIssues;
     @JsonProperty("closed_issues")
 
-    private long closedIssues;
+    private Long closedIssues;
 
     @JsonProperty("pull_requests_merged")
-    private long pullRequestsMerged;
+    private Long pullRequestsMerged;
 
     @JsonProperty("pull_request_contributors")
-    private long pullRequestContributors;
+    private Long pullRequestContributors;
 
     @JsonProperty("code_additions_deletions_4_weeks")
     private CodeAdditionsDeletions4Weeks codeAdditionsDeletions4Weeks;
 
     @JsonProperty("commit_count_4_weeks")
-    private long commitCount4Weeks;
+    private Long commitCount4Weeks;
 
     @JsonProperty("last_4_weeks_commit_activity_series")
     private List<Long> last4WeeksCommitActivitySeries;

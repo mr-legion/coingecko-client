@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CodeAdditionsDeletions4Weeks {
-    private long additions;
-    private long deletions;
+    private Long additions;
+    private Long deletions;
 }

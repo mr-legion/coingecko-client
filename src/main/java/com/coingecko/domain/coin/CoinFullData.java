@@ -27,7 +27,7 @@ public class CoinFullData {
     private Map<String, String> platforms;
 
     @JsonProperty("block_time_in_minutes")
-    private long blockTimeInMinutes;
+    private Long blockTimeInMinutes;
 
     @JsonProperty("hashing_algorithm")
     private String hashingAlgorithm;
@@ -55,10 +55,10 @@ public class CoinFullData {
     private String genesisDate;
 
     @JsonProperty("sentiment_votes_up_percentage")
-    private double sentimentVotesUpPercentage;
+    private Double sentimentVotesUpPercentage;
 
     @JsonProperty("sentiment_votes_down_percentage")
-    private double sentimentVotesDownPercentage;
+    private Double sentimentVotesDownPercentage;
 
     @JsonProperty("contract_address")
     private String contractAddress;
@@ -67,25 +67,25 @@ public class CoinFullData {
     private IcoData icoData;
 
     @JsonProperty("market_cap_rank")
-    private long marketCapRank;
+    private Long marketCapRank;
 
     @JsonProperty("coingecko_rank")
-    private long coingeckoRank;
+    private Long coingeckoRank;
 
     @JsonProperty("coingecko_score")
-    private double coingeckoScore;
+    private Double coingeckoScore;
 
     @JsonProperty("developer_score")
-    private double developerScore;
+    private Double developerScore;
 
     @JsonProperty("community_score")
-    private double communityScore;
+    private Double communityScore;
 
     @JsonProperty("liquidity_score")
-    private double liquidityScore;
+    private Double liquidityScore;
 
     @JsonProperty("public_interest_score")
-    private double publicInterestScore;
+    private Double publicInterestScore;
 
     @JsonProperty("market_data")
     private MarketData marketData;

@@ -90,7 +90,7 @@ public class IcoData {
     private Object amountForSale;
 
     @JsonProperty("kyc_required")
-    private boolean kycRequired;
+    private Boolean kycRequired;
 
     @JsonProperty("whitelist_available")
     private Object whitelistAvailable;
@@ -99,6 +99,6 @@ public class IcoData {
     private Object preSaleAvailable;
 
     @JsonProperty("pre_sale_ended")
-    private boolean preSaleEnded;
+    private Boolean preSaleEnded;
 
 }

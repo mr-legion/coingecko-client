@@ -43,7 +43,7 @@ public class MarketData {
     private Map<String, Double> marketCap;
 
     @JsonProperty("market_cap_rank")
-    private long marketCapRank;
+    private Long marketCapRank;
 
     @JsonProperty("total_volume")
     private Map<String, Double> totalVolume;
@@ -55,34 +55,34 @@ public class MarketData {
     private Map<String, Double> low24h;
 
     @JsonProperty("price_change_24h")
-    private double priceChange24h;
+    private Double priceChange24h;
 
     @JsonProperty("price_change_percentage_24h")
-    private double priceChangePercentage24h;
+    private Double priceChangePercentage24h;
 
     @JsonProperty("price_change_percentage_7d")
-    private double priceChangePercentage7d;
+    private Double priceChangePercentage7d;
 
     @JsonProperty("price_change_percentage_14d")
-    private double priceChangePercentage14d;
+    private Double priceChangePercentage14d;
 
     @JsonProperty("price_change_percentage_30d")
-    private double priceChangePercentage30d;
+    private Double priceChangePercentage30d;
 
     @JsonProperty("price_change_percentage_60d")
-    private double priceChangePercentage60d;
+    private Double priceChangePercentage60d;
 
     @JsonProperty("price_change_percentage_200d")
-    private double priceChangePercentage200d;
+    private Double priceChangePercentage200d;
 
     @JsonProperty("price_change_percentage_1y")
-    private double priceChangePercentage1y;
+    private Double priceChangePercentage1y;
 
     @JsonProperty("market_cap_change_24h")
-    private double marketCapChange24h;
+    private Double marketCapChange24h;
 
     @JsonProperty("market_cap_change_percentage_24h")
-    private double marketCapChangePercentage24h;
+    private Double marketCapChangePercentage24h;
 
     @JsonProperty("price_change_24h_in_currency")
     private Map<String, Double> priceChange24hInCurrency;
@@ -130,13 +130,13 @@ public class MarketData {
     private String fdvToTvlRatio;
 
     @JsonProperty("total_supply")
-    private double totalSupply;
+    private Double totalSupply;
 
     @JsonProperty("max_supply")
-    private double maxSupply;
+    private Double maxSupply;
 
     @JsonProperty("circulating_supply")
-    private double circulatingSupply;
+    private Double circulatingSupply;
 
     @JsonProperty("last_updated")
     private String lastUpdated;

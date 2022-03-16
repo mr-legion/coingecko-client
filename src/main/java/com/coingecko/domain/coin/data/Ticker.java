@@ -21,9 +21,9 @@ public class Ticker {
 
     private Market market;
 
-    private double last;
+    private Double last;
 
-    private double volume;
+    private Double volume;
 
     @JsonProperty("converted_last")
     private Map<String, String> convertedLast;
@@ -35,7 +35,7 @@ public class Ticker {
     private String trustScore;
 
     @JsonProperty("bid_ask_spread_percentage")
-    private double bidAskSpreadPercentage;
+    private Double bidAskSpreadPercentage;
 
     private String timestamp;
 
@@ -46,10 +46,10 @@ public class Ticker {
     private String lastFetchAt;
 
     @JsonProperty("is_anomaly")
-    private boolean isAnomaly;
+    private Boolean isAnomaly;
 
     @JsonProperty("is_stale")
-    private boolean isStale;
+    private Boolean isStale;
 
     @JsonProperty("trade_url")
     private String tradeUrl;

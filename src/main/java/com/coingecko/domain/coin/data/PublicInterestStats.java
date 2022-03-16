@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 public class PublicInterestStats {
 
     @JsonProperty("alexa_rank")
-    private long alexaRank;
+    private Long alexaRank;
 
     @JsonProperty("bing_matches")
-    private long bingMatches;
+    private Long bingMatches;
 
 }

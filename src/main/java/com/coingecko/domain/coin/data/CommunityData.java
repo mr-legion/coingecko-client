@@ -14,24 +14,24 @@ import lombok.NoArgsConstructor;
 public class CommunityData {
 
     @JsonProperty("facebook_likes")
-    private long facebookLikes;
+    private Long facebookLikes;
 
     @JsonProperty("twitter_followers")
-    private long twitterFollowers;
+    private Long twitterFollowers;
 
     @JsonProperty("reddit_average_posts_48h")
-    private double redditAveragePosts48h;
+    private Double redditAveragePosts48h;
 
     @JsonProperty("reddit_average_comments_48h")
-    private double redditAverageComments48h;
+    private Double redditAverageComments48h;
 
     @JsonProperty("reddit_subscribers")
-    private long redditSubscribers;
+    private Long redditSubscribers;
 
     @JsonProperty("reddit_accounts_active_48h")
-    private double redditAccountsActive48h;
+    private Double redditAccountsActive48h;
 
     @JsonProperty("telegram_channel_user_count")
-    private long telegramChannelUserCount;
+    private Long telegramChannelUserCount;
 
 }
