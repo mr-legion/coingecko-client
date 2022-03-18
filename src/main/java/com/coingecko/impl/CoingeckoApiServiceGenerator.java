@@ -2,6 +2,8 @@ package com.coingecko.impl;
 
 import com.coingecko.CoingeckoApiError;
 import com.coingecko.exception.CoingeckoApiException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -20,11 +22,16 @@ import static com.coingecko.constant.CoingeckoApiConstants.API_BASE_URL;
  */
 public class CoingeckoApiServiceGenerator {
 
-    private static final Converter.Factory converterFactory = JacksonConverterFactory.create();
+    private static final ObjectMapper mapper = new ObjectMapper();
+    private static final Converter.Factory converterFactory = JacksonConverterFactory.create(mapper);
     @SuppressWarnings("unchecked")
     private static final Converter<ResponseBody, CoingeckoApiError> errorBodyConverter =
             (Converter<ResponseBody, CoingeckoApiError>) converterFactory.responseBodyConverter(
                     CoingeckoApiError.class, new Annotation[0], null);
+
+    static {
+        mapper.enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL);
+    }
 
     private final OkHttpClient client;
 
