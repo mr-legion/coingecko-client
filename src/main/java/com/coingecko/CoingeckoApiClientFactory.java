@@ -14,11 +14,21 @@ public class CoingeckoApiClientFactory {
     private final CoingeckoApiServiceGenerator serviceGenerator;
 
     public CoingeckoApiClientFactory() {
-        this(new OkHttpClient());
+        this.serviceGenerator = new CoingeckoApiServiceGenerator(new OkHttpClient());
     }
 
-    private CoingeckoApiClientFactory(OkHttpClient client) {
-        this.serviceGenerator = new CoingeckoApiServiceGenerator(client);
+    public CoingeckoApiClientFactory(ApiInteractionConfig apiInteractionConfig) {
+        this(new OkHttpClient(), apiInteractionConfig);
+    }
+
+    private CoingeckoApiClientFactory(OkHttpClient client, ApiInteractionConfig apiInteractionConfig) {
+        OkHttpClient newClient = client.newBuilder()
+                .proxySelector(new CustomProxySelector(apiInteractionConfig.getProxies()))
+                .addInterceptor(new RateLimitInterceptor(
+                        apiInteractionConfig.getMaxRequestsPerSecond(),
+                        apiInteractionConfig.getMaxApiKeyUsagePerSecond()
+                )).build();
+        this.serviceGenerator = new CoingeckoApiServiceGenerator(newClient);
     }
 
     /**
