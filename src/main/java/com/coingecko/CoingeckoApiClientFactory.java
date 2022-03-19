@@ -21,7 +21,7 @@ public class CoingeckoApiClientFactory {
         this(new OkHttpClient(), apiInteractionConfig);
     }
 
-    private CoingeckoApiClientFactory(OkHttpClient client, ApiInteractionConfig apiInteractionConfig) {
+    public CoingeckoApiClientFactory(OkHttpClient client, ApiInteractionConfig apiInteractionConfig) {
         OkHttpClient newClient = client.newBuilder()
                 .proxySelector(new CustomProxySelector(apiInteractionConfig.getProxies()))
                 .addInterceptor(new RateLimitInterceptor(
