@@ -1,9 +1,9 @@
-package com.coingecko.impl;
+package io.algostrategy.client.coingecko.impl;
 
-import com.coingecko.CoingeckoApiAsyncRestClient;
-import com.coingecko.CoingeckoApiClientFactory;
-import com.coingecko.domain.coin.Coin;
-import com.coingecko.domain.coin.CoinFullData;
+import io.algostrategy.client.coingecko.CoingeckoApiAsyncRestClient;
+import io.algostrategy.client.coingecko.CoingeckoApiClientFactory;
+import io.algostrategy.client.coingecko.domain.coin.Coin;
+import io.algostrategy.client.coingecko.domain.coin.CoinFullData;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
