@@ -20,10 +20,11 @@ public class CustomProxySelector extends ProxySelector {
     private int currProxyIndex = 0;
 
     public CustomProxySelector(Set<Proxy> proxies) {
-        if (proxies.isEmpty()) {
-            throw new IllegalArgumentException("no proxy");
+        if (proxies == null || proxies.isEmpty()) {
+            this.proxies.add(Proxy.NO_PROXY);
+        } else {
+            this.proxies.addAll(proxies);
         }
-        this.proxies.addAll(proxies);
     }
 
     public List<Proxy> select(URI uri) {
