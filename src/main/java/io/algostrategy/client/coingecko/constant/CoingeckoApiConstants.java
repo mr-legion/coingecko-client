@@ -23,4 +23,6 @@ public class CoingeckoApiConstants {
      * Default ToStringStyle used by toString methods.
      */
     public static final ToStringStyle TO_STRING_BUILDER_STYLE = ToStringStyle.SHORT_PREFIX_STYLE;
+
+    public static final String ZONED_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssXXX";
 }

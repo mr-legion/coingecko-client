@@ -2,6 +2,7 @@ package io.algostrategy.client.coingecko;
 
 import io.algostrategy.client.coingecko.domain.coin.Coin;
 import io.algostrategy.client.coingecko.domain.coin.CoinFullData;
+import io.algostrategy.client.coingecko.domain.exchange.Tickers;
 
 import java.util.List;
 import java.util.Map;
@@ -58,4 +59,23 @@ public interface CoingeckoApiRestClient {
                                  boolean developerData,
                                  boolean sparkline);
 
+    // Exchange endpoints
+
+    /**
+     * Get exchange tickers (paginated).
+     *
+     * @param exchange            exchange id
+     * @param coins               coin ids, coma separate [bitcoin,ethereum...]
+     * @param includeExchangeLogo flag to show exchange logo
+     * @param page                page number
+     * @param depthInclude        flag to show 2% orderbook depth
+     * @param order               valid values: trust_score_desc (default), trust_score_asc and volume_desc
+     * @return exchange tickers
+     */
+    Tickers getExchangeTickers(String exchange,
+                               String coins,
+                               Boolean includeExchangeLogo,
+                               Integer page,
+                               Boolean depthInclude,
+                               String order);
 }

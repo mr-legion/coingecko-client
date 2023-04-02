@@ -4,6 +4,7 @@ import io.algostrategy.client.coingecko.CoingeckoApiAsyncRestClient;
 import io.algostrategy.client.coingecko.CoingeckoApiClientFactory;
 import io.algostrategy.client.coingecko.domain.coin.Coin;
 import io.algostrategy.client.coingecko.domain.coin.CoinFullData;
+import io.algostrategy.client.coingecko.domain.exchange.Tickers;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -40,5 +41,11 @@ public class CoingeckoApiAsyncRestClientImplTest {
                 "bitcoin", true, true, true, true, true, true
         ).get();
         assertNotNull(coinFullData);
+    }
+
+    @Test
+    public void getExchangeTickers_ShouldReturnExchangeTickers() throws ExecutionException, InterruptedException {
+        Tickers tickers = coingeckoApiAsyncRestClient.getExchangeTickers("binance", null, null, 5, null, null).get();
+        assertNotNull(tickers);
     }
 }

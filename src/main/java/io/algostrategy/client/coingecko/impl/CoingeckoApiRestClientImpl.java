@@ -3,6 +3,7 @@ package io.algostrategy.client.coingecko.impl;
 import io.algostrategy.client.coingecko.CoingeckoApiRestClient;
 import io.algostrategy.client.coingecko.domain.coin.Coin;
 import io.algostrategy.client.coingecko.domain.coin.CoinFullData;
+import io.algostrategy.client.coingecko.domain.exchange.Tickers;
 
 import java.util.List;
 import java.util.Map;
@@ -46,6 +47,20 @@ public class CoingeckoApiRestClientImpl implements CoingeckoApiRestClient {
                                         boolean sparkline) {
         return CoingeckoApiServiceGenerator.executeSync(coingeckoApiService.getCoinFullData(
                 id, localization, tickers, marketData, communityData, developerData, sparkline
+        ));
+    }
+
+    // Exchange endpoints
+
+    @Override
+    public Tickers getExchangeTickers(String exchange,
+                                      String coins,
+                                      Boolean includeExchangeLogo,
+                                      Integer page,
+                                      Boolean depthInclude,
+                                      String order) {
+        return CoingeckoApiServiceGenerator.executeSync(coingeckoApiService.getExchangeTickers(
+                exchange, coins, includeExchangeLogo, page, depthInclude, order
         ));
     }
 }

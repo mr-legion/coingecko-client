@@ -3,6 +3,7 @@ package io.algostrategy.client.coingecko.impl;
 import io.algostrategy.client.coingecko.CoingeckoApiAsyncRestClient;
 import io.algostrategy.client.coingecko.domain.coin.Coin;
 import io.algostrategy.client.coingecko.domain.coin.CoinFullData;
+import io.algostrategy.client.coingecko.domain.exchange.Tickers;
 
 import java.util.List;
 import java.util.Map;
@@ -53,6 +54,21 @@ public class CoingeckoApiAsyncRestClientImpl implements CoingeckoApiAsyncRestCli
         coingeckoApiService.getCoinFullData(
                 id, localization, tickers, marketData, communityData, developerData, sparkline
         ).enqueue(new RetrofitCallbackAdapter<>(future));
+        return future;
+    }
+
+    // Exchange endpoints
+
+    @Override
+    public CompletableFuture<Tickers> getExchangeTickers(String exchange,
+                                                         String coins,
+                                                         Boolean includeExchangeLogo,
+                                                         Integer page,
+                                                         Boolean depthInclude,
+                                                         String order) {
+        CompletableFuture<Tickers> future = new CompletableFuture<>();
+        coingeckoApiService.getExchangeTickers(exchange, coins, includeExchangeLogo, page, depthInclude, order)
+                .enqueue(new RetrofitCallbackAdapter<>(future));
         return future;
     }
 }

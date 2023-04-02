@@ -4,6 +4,7 @@ import io.algostrategy.client.coingecko.CoingeckoApiClientFactory;
 import io.algostrategy.client.coingecko.CoingeckoApiRestClient;
 import io.algostrategy.client.coingecko.domain.coin.Coin;
 import io.algostrategy.client.coingecko.domain.coin.CoinFullData;
+import io.algostrategy.client.coingecko.domain.exchange.Tickers;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -11,7 +12,8 @@ import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CoingeckoApiRestClientImplTest {
 
@@ -36,5 +38,11 @@ public class CoingeckoApiRestClientImplTest {
     public void getCoinFullData_ShouldReturnFullDataForBitcoin() {
         CoinFullData coinFullData = coingeckoApiRestClient.getCoinFullData("bitcoin", true, true, true, true, true, true);
         assertNotNull(coinFullData);
+    }
+
+    @Test
+    public void getExchangeTickers_ShouldReturnExchangeTickers() {
+        Tickers tickers = coingeckoApiRestClient.getExchangeTickers("binance", null, null, 5, null, null);
+        assertNotNull(tickers);
     }
 }
