@@ -2,8 +2,8 @@ package io.algostrategy.client.coingecko;
 
 import io.algostrategy.client.coingecko.impl.CoingeckoApiAsyncRestClientImpl;
 import io.algostrategy.client.coingecko.impl.CoingeckoApiRestClientImpl;
-import io.algostrategy.client.coingecko.impl.CoingeckoApiServiceGenerator;
 import io.algostrategy.client.coingecko.impl.CoingeckoApiService;
+import io.algostrategy.client.coingecko.impl.CoingeckoApiServiceGenerator;
 import okhttp3.OkHttpClient;
 
 /**
@@ -14,7 +14,10 @@ public class CoingeckoApiClientFactory {
     private final CoingeckoApiServiceGenerator serviceGenerator;
 
     public CoingeckoApiClientFactory() {
-        this.serviceGenerator = new CoingeckoApiServiceGenerator(new OkHttpClient());
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(new PaginationInterceptor())
+                .build();
+        this.serviceGenerator = new CoingeckoApiServiceGenerator(okHttpClient);
     }
 
     public CoingeckoApiClientFactory(ApiInteractionConfig apiInteractionConfig) {
@@ -27,7 +30,9 @@ public class CoingeckoApiClientFactory {
                 .addInterceptor(new RateLimitInterceptor(
                         apiInteractionConfig.getMaxRequestsPerSecond(),
                         apiInteractionConfig.getMaxApiKeyUsagePerSecond()
-                )).build();
+                ))
+                .addInterceptor(new PaginationInterceptor())
+                .build();
         this.serviceGenerator = new CoingeckoApiServiceGenerator(newClient);
     }
 
