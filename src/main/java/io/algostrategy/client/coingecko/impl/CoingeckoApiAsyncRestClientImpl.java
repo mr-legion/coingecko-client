@@ -61,7 +61,7 @@ public class CoingeckoApiAsyncRestClientImpl implements CoingeckoApiAsyncRestCli
 
     @Override
     public CompletableFuture<Tickers> getExchangeTickers(String exchange,
-                                                         String coins,
+                                                         String[] coins,
                                                          Boolean includeExchangeLogo,
                                                          Integer page,
                                                          Boolean depthInclude,

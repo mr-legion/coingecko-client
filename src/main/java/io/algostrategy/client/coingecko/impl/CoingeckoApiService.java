@@ -42,7 +42,7 @@ public interface CoingeckoApiService {
 
     @GET("/api/v3/exchanges/{exchange}/tickers")
     Call<Tickers> getExchangeTickers(@Path("exchange") String exchange,
-                                     @Query("coin_ids") String coins,
+                                     @Query("coin_ids") String[] coins,
                                      @Query("include_exchange_logo") Boolean includeExchangeLogo,
                                      @Query("page") Integer page,
                                      @Query("depth") Boolean depthInclude,

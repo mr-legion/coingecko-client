@@ -73,7 +73,7 @@ public interface CoingeckoApiRestClient {
      * @return exchange tickers
      */
     Tickers getExchangeTickers(String exchange,
-                               String coins,
+                               String[] coins,
                                Boolean includeExchangeLogo,
                                Integer page,
                                Boolean depthInclude,

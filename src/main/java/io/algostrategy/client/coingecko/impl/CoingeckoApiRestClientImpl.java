@@ -54,7 +54,7 @@ public class CoingeckoApiRestClientImpl implements CoingeckoApiRestClient {
 
     @Override
     public Tickers getExchangeTickers(String exchange,
-                                      String coins,
+                                      String[] coins,
                                       Boolean includeExchangeLogo,
                                       Integer page,
                                       Boolean depthInclude,
