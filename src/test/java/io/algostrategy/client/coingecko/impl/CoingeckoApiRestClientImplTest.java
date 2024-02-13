@@ -1,10 +1,10 @@
 package io.algostrategy.client.coingecko.impl;
 
-import io.algostrategy.client.coingecko.CoingeckoApiClientFactory;
 import io.algostrategy.client.coingecko.CoingeckoApiRestClient;
 import io.algostrategy.client.coingecko.domain.coin.Coin;
 import io.algostrategy.client.coingecko.domain.coin.CoinFullData;
 import io.algostrategy.client.coingecko.domain.exchange.Tickers;
+import io.algostrategy.client.coingecko.exception.CoingeckoApiException;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -17,13 +17,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CoingeckoApiRestClientImplTest {
 
-    private final CoingeckoApiRestClient coingeckoApiRestClient =
-            CoingeckoApiClientFactory.newInstance().newRestClient();
+    private final CoingeckoApiRestClient coingeckoApiRestClient = new CoingeckoApiRestClientImpl();
 
     @Test
     public void getPrice_ShouldReturnPriceForBTCvsUSD() {
-        Map<String, Map<String, Double>> prices = coingeckoApiRestClient.getPrice(
-                "bitcoin", "usd", null, null, null, null);
+        Map<String, Map<String, Double>> prices = coingeckoApiRestClient.getPrice("bitcoin", "usd", null, null, null, null);
         assertTrue(prices.containsKey("bitcoin"));
         assertTrue(prices.get("bitcoin").containsKey("usd"));
     }

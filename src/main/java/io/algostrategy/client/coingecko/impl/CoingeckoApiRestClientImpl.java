@@ -4,19 +4,26 @@ import io.algostrategy.client.coingecko.CoingeckoApiRestClient;
 import io.algostrategy.client.coingecko.domain.coin.Coin;
 import io.algostrategy.client.coingecko.domain.coin.CoinFullData;
 import io.algostrategy.client.coingecko.domain.exchange.Tickers;
+import okhttp3.OkHttpClient;
 
 import java.util.List;
 import java.util.Map;
 
+import static io.algostrategy.client.coingecko.impl.CoingeckoApiServiceGenerator.createService;
+
 /**
- * Implementation of Coingecko's REST API using Retrofit with synchronous/blocking method calls.
+ * Implementation of REST API using Retrofit with synchronous/blocking method calls.
  */
 public class CoingeckoApiRestClientImpl implements CoingeckoApiRestClient {
 
     private final CoingeckoApiService coingeckoApiService;
 
-    public CoingeckoApiRestClientImpl(CoingeckoApiService coingeckoApiService) {
-        this.coingeckoApiService = coingeckoApiService;
+    public CoingeckoApiRestClientImpl() {
+        this.coingeckoApiService = createService(CoingeckoApiService.class);
+    }
+
+    public CoingeckoApiRestClientImpl(OkHttpClient client) {
+        this.coingeckoApiService = createService(client, CoingeckoApiService.class);
     }
 
     // Coin endpoints

@@ -1,4 +1,4 @@
-package io.algostrategy.client.coingecko;
+package io.algostrategy.client.coingecko.interceptor;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

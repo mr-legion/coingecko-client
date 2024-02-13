@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Coingecko API facade, supporting synchronous/blocking access Coingecko's REST API.
+ * API facade, supporting synchronous/blocking access REST API.
  */
 public interface CoingeckoApiRestClient {
 

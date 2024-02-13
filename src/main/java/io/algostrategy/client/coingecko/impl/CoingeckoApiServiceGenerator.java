@@ -1,10 +1,10 @@
 package io.algostrategy.client.coingecko.impl;
 
-import io.algostrategy.client.coingecko.CoingeckoApiError;
-import io.algostrategy.client.coingecko.constant.CoingeckoApiConstants;
-import io.algostrategy.client.coingecko.exception.CoingeckoApiException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.algostrategy.client.coingecko.CoingeckoApiError;
+import io.algostrategy.client.coingecko.exception.CoingeckoApiException;
+import io.algostrategy.client.coingecko.interceptor.PaginationInterceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -16,8 +16,10 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 
+import static io.algostrategy.client.coingecko.constant.CoingeckoApiConstants.API_BASE_URL;
+
 /**
- * Generates a Coingecko API implementation based on @see {@link CoingeckoApiService}.
+ * Generates an API implementation based on @see {@link CoingeckoApiService}.
  */
 public class CoingeckoApiServiceGenerator {
 
@@ -32,18 +34,20 @@ public class CoingeckoApiServiceGenerator {
         mapper.enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL);
     }
 
-    private final OkHttpClient client;
-
-    public CoingeckoApiServiceGenerator(OkHttpClient client) {
-        this.client = client;
+    public static <S> S createService(Class<S> serviceClass) {
+        return createService(new OkHttpClient(), serviceClass);
     }
 
-    public <S> S createService(Class<S> serviceClass) {
+    public static <S> S createService(OkHttpClient client, Class<S> serviceClass) {
+
+        OkHttpClient newClient = client.newBuilder()
+                .addInterceptor(new PaginationInterceptor())
+                .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(CoingeckoApiConstants.API_BASE_URL)
+                .baseUrl(API_BASE_URL)
                 .addConverterFactory(converterFactory)
-                .client(client)
+                .client(newClient)
                 .build();
 
         return retrofit.create(serviceClass);

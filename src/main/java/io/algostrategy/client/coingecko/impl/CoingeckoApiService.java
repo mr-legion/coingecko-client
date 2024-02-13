@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Coingecko's REST API URL mappings.
+ * REST API URL mappings.
  */
 public interface CoingeckoApiService {
 
