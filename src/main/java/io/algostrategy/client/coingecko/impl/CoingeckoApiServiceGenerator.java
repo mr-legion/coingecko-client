@@ -63,7 +63,7 @@ public class CoingeckoApiServiceGenerator {
                 return response.body();
             } else {
                 CoingeckoApiError apiError = getCoingeckoApiError(response);
-                throw new CoingeckoApiException(apiError);
+                throw new CoingeckoApiException(apiError.getMsg());
             }
         } catch (IOException e) {
             throw new CoingeckoApiException(e);
