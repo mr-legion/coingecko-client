@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.algostrategy.client.coingecko.CoingeckoApiError;
 import io.algostrategy.client.coingecko.exception.CoingeckoApiException;
 import io.algostrategy.client.coingecko.interceptor.PaginationInterceptor;
+import lombok.experimental.UtilityClass;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -21,6 +22,7 @@ import static io.algostrategy.client.coingecko.constant.CoingeckoApiConstants.AP
 /**
  * Generates an API implementation based on @see {@link CoingeckoApiService}.
  */
+@UtilityClass
 public class CoingeckoApiServiceGenerator {
 
     private static final ObjectMapper mapper = new ObjectMapper();
